@@ -1,6 +1,6 @@
 context:
   name: RustSASA
-  version: "0.9.0"
+  version: "0.9.2"
 
 package:
   name: rust-sasa
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/maxall41/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: c92e285565d88603531de2859b7b4a4893fc2a036bf742dcc9adb437dd2159cf
+    sha256: 2f2d7509d2e2bb3a9c1cf79d1b53d6bc1c6de2693ae7d8494a637ab136fadcae
   - url: https://github.com/maxall41/pdbtbx/archive/332d29a232755e28c20d12929f9fea72be958e4c.tar.gz
     sha256: 1b4af990e399d265582c23af5f4fea757f89842de8be92c92beb6af676484455
     target_directory: pdbtbx
@@ -40,10 +40,10 @@ tests:
       - rust-sasa --version
 
   - script:
-    - if: unix
-      then: run_test.sh
-    - if: win
-      then: rust-sasa --help
+      - if: unix
+        then: run_test.sh
+      - if: win
+        then: rust-sasa --help
     files:
       source:
         - tests/data/pdbs/example.cif
